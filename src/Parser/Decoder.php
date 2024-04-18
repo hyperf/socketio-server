@@ -89,7 +89,7 @@ class Decoder
         // look up json data
         if ($currentIndex < $payloadLength - 1) {
             try {
-                $data = json_decode(substr($payload, $currentIndex + 1), associative: true, flags: JSON_THROW_ON_ERROR);
+                $data = json_decode(substr($payload, $currentIndex + 1), true, JSON_THROW_ON_ERROR);
             } catch (Throwable $exception) {
                 throw new InvalidArgumentException('Invalid data', (int) $exception->getCode(), $exception);
             }
